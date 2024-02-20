@@ -59,6 +59,25 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
+
+                            <!-- Admin Panel Sidebar Starts -->
+                            <div class="sb-sidenav-menu-heading">Admin</div>
+                            <a class="nav-link collapsed" href="#" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseAdmin" 
+                            aria-expanded="false" 
+                            aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Admin 
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseAdmin" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="admin.php">Admin / Staff Info</a>
+                                    <a class="nav-link" href="admins-create.php">Add Admin</a>
+                                </nav>
+                            </div>
+                            <!-- Admin Panel Sidebar Ends -->
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
