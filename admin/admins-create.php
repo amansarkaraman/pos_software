@@ -8,6 +8,7 @@
             </h4>
         </div>
         <div class="card-body">
+            <?php alertMessage() ?>
             <form action="code.php" method="post">
                 <div class="row">
                     <div class="col-md-12 mb-2">
@@ -24,10 +25,10 @@
                     </div>
                     <div class="col-md-6 mb-2">
                         <label for="">Phone Number *</label>
-                        <input type="number" name="mobile_number" required class="form-control" />
+                        <input type="number" name="phone" required class="form-control" />
                     </div>
                     <div class="col-md-3 mb-2">
-                        <label for="">IS Ban</label>
+                        <label for="">Is Ban</label>
                         <input type="checkbox" name="is_ban" style="height:20px;width:20px;" />
                     </div>
                     <div class="col-md-12 mb-2 text-end">
@@ -37,5 +38,5 @@
             </form>
         </div>
     </div>
-    </div>
+</div>
 <?php include('includes/footer.php') ?>

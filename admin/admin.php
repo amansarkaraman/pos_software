@@ -8,6 +8,7 @@
             </h4>
         </div>
         <div class="card-body">
+            <?php alertMessage() ?>
             <div class="table-responsive">
                 <table class="table table-striped table-border">
                     <thead>
@@ -19,9 +20,31 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $admin_infos=getAllData('admins');
+                        if(mysqli_num_rows($admin_infos)>0){
+                        ?>
+                        <?php foreach($admin_infos as $adminitems) : ?>
                         <tr>
-                            <td></td>
+                            <td><?php echo $adminitems['id'] ?></td>
+                            <td><?php echo $adminitems['name'] ?></td>
+                            <td><?php echo $adminitems['email'] ?></td>
+                            <td>
+                                <a href="" class="btn btn-success btn-sm">Edit</a>
+                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
                         </tr>
+                        <?php endforeach;?>
+                        <?php
+                        }
+                        else{
+                        ?>
+                        <tr>
+                            <td>No record Found</td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
