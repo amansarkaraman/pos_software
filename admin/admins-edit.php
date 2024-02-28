@@ -38,7 +38,7 @@
                 {
                 ?> 
                     <div class="row">
-                        <input  type="hidden" value="<?= $adminData['data']['id'] ?>" id="id" class="form-control" required>
+                        <input  type="hidden" value="<?= $adminData['data']['id'] ?>" name="adminsID" id="id" class="form-control" required>
                         <div class="col-md-12 mb-2">
                             <label for="">Name *</label>
                             <input type="text" value="<?= $adminData['data']['name'] ?>" name="name" class="form-control" required />
@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="">Password *</label>
-                            <input type="password"  name="password" required class="form-control" />
+                            <input type="password"  name="password"  class="form-control" />
                         </div>
                         <div class="col-md-6 mb-2">
                             <label for="">Phone Number *</label>
@@ -60,7 +60,7 @@
                             <input type="checkbox" name="is_ban" style="height:20px;width:20px;" />
                         </div>
                         <div class="col-md-12 mb-2 text-end">
-                            <button type="submit" name="saveAdmin" class="btn btn-primary">Save</button>
+                            <button type="submit" name="updateAdmin" class="btn btn-primary">Save</button>
                         </div>
                     </div>
                  <?php

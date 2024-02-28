@@ -39,4 +39,54 @@ if(isset($_POST['saveAdmin'])){
         redirect('admins-create','Please fill the required feilds');
     }
 }
+
+
+if(isset($_POST['updateAdmin'])){
+    // 1st we need to get all the input feilds from form
+    global $conn;
+    $adminsID=validate($_POST['adminsID']);
+    // Now we need to fetch all the data by ID
+    $adminsData=getAllDataById('admins',$adminsID);
+    if($adminsData['status'] != 200){
+        redirect('admins-edit.php?id='.$adminsID,"Something went wrong");
+    }
+    $name=validate($_POST['name']);
+    $email=validate($_POST['email']);
+    $password=validate($_POST['password']);
+    $phone=validate($_POST['phone']);
+    $is_ban=isset($_POST['is_ban']) == true ? 1:0;
+
+    if($password != ''){
+        $hashedPassword=password_hash($password,PASSWORD_BCRYPT);
+    }
+    else{
+        $hashedPassword=$adminsData['data']['password'];
+    }
+
+    if($name != '' && $email != ''){
+        //This is the update funtion
+        // Here all the updation of Data happens
+         $data=[
+        'name' => $name,
+        'email' => $email,
+        'password' => $hashedPassword,
+        'phone'	=> $phone,
+        'is_ban' => $is_ban,
+    ];
+    $result=update('admins',$adminsID,$data);
+    if($result){
+        redirect('admins-edit.php?id='.$adminsID,'Admin '.$adminsData['data']['name'].' Updated Successfully');
+    }else{
+        redirect('aadmins-edit.php?id='.$adminsID,'Something went Wrong');
+    }
+    }
+    else{
+    redirect('admins-create.php',"Something went wrong or Please fill the required feild");
+     }
+
+
+}
+
+
+
 ?>

@@ -31,6 +31,9 @@ function alertMessage(){
 }
 
 // Crud Functions Starts
+
+
+//Insert Function
 function insert($tableName,$data){
     global $conn;
     $table = validate($tableName);
@@ -45,6 +48,7 @@ function insert($tableName,$data){
     return $result;
 }
 
+//Update Function
 function update($tableName,$id,$data){
     global $conn;
     $table = validate($tableName);
@@ -62,6 +66,7 @@ function update($tableName,$id,$data){
     return $result;
 }
 
+//GetAll Data
 function getAllData($tableName,$status = NULL){
     global $conn;
     $table=validate($tableName);
@@ -76,6 +81,7 @@ function getAllData($tableName,$status = NULL){
 
 }
 
+// Get All Data by ID
 function getAllDataById($tableName,$id){
     global $conn;
     $table = validate($tableName);
@@ -109,6 +115,8 @@ function getAllDataById($tableName,$id){
     }
 }
 
+
+// Delete FUnction
 function delete($tableName,$id){
     global $conn;
     $table = validate($tableName);
@@ -119,4 +127,20 @@ function delete($tableName,$id){
     return $result; 
 }
 // Crud Function Ends
+
+// Used to check if id is set or not
+// If set then we don't need to check ID 
+// For any update or delete
+// This function return value we could use as ID set value?
+function checkparam($type){
+    if(isset($_GET[$type])){
+        if($type != ''){
+            return $type;
+        }else{
+            return '<h4>ID has no value</h4>';
+        }
+    }else{
+        return '<h4>Something went wrong</h4>';
+    }
+}
 ?>
