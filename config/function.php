@@ -87,7 +87,7 @@ function getAllDataById($tableName,$id){
         if(mysqli_num_rows($result)==1){
             $row=mysqli_fetch_assoc($result);
             $response=[
-            'status' => 202,
+            'status' => 200,
             'data' => $row,
             'message' => 'Data found',
         ];

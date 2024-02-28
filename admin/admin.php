@@ -30,8 +30,8 @@
                             <td><?php echo $adminitems['name'] ?></td>
                             <td><?php echo $adminitems['email'] ?></td>
                             <td>
-                                <a href="" class="btn btn-success btn-sm">Edit</a>
-                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="admins-edit.php?id=<?= $adminitems['id']; ?>" class="btn btn-success btn-sm">Edit</a>
+                                <a href="admins-delete.php?id=<?= $adminitems['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                         <?php endforeach;?>
@@ -52,3 +52,16 @@
     </div>
     </div>
 <?php include('includes/footer.php') ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
