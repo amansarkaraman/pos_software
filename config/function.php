@@ -134,8 +134,8 @@ function delete($tableName,$id){
 // This function return value we could use as ID set value?
 function checkparam($type){
     if(isset($_GET[$type])){
-        if($type != ''){
-            return $type;
+        if($_GET[$type] != ''){
+            return $_GET[$type];
         }else{
             return '<h4>ID has no value</h4>';
         }
