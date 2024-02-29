@@ -31,7 +31,7 @@
                             <td><?php echo $adminitems['email'] ?></td>
                             <td>
                                 <a href="admins-edit.php?id=<?= $adminitems['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                <a href="admins-delete.php?id=<?= $adminitems['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                <a onclick="confirmDeltion(<?php $adminitems['id'] ?>)" href="admins-delete.php?id=<?= $adminitems['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                         <?php endforeach;?>
@@ -52,6 +52,16 @@
     </div>
     </div>
 <?php include('includes/footer.php') ?>
+
+<script>
+    function confirmDeltion($adminID){
+        if (confirm("Are you sure you want to delete this admin?")) {
+            window.location.href = "admins-delete.php?id=" + adminID;
+        }else{
+            false;
+        }
+    }
+</script>
 
 
 
